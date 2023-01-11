@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@using GameStop.Models;
+
+<h2>Gamers!</h2>
+
+<hr>
+@if (@Model.Count == 0)
+{
+  <h5>No Gamers have been added yet!</h5><br>
+} 
+<div class="row" style="padding-top: 30px;">
+<div class="col-6">
+<ul>
+  @foreach(Gamer gamer in Model)
+  {
+    <li style="list-style-position: inside;">@Html.ActionLink($"{gamer.Name}", "Details", new { id = gamer.GamerId })</li>
+  }
+</ul>
+</div>
+<div class="col-6">
+<p>@Html.ActionLink("Add new Gamer!", "Create")</p>
+<p>@Html.ActionLink("Add new Video Game!", "Create", "VideoGames")</p>
+</div>
+</div>
+<hr>

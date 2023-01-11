@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+
+@model GameStop.Models.Gamer
+
+<h4>Add a new gamer!</h4><br>
+@using (Html.BeginForm())
+{
+  @Html.TextBoxFor(model => model.Name, new { placeholder = "Name", style = "text-align: center; border-radius: 10px 10px "})
+  <br><br><input type="submit" value="Add!" style="border-radius: 10px 10px;" class="btn btn-dark"/>
+}
+<br><p>@Html.ActionLink("Show all gamers!", "Index")</p>

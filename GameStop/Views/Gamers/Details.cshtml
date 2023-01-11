@@ -1,0 +1,40 @@
+@{
+    Layout = "_Layout";
+}
+
+@model GameStop.Models.Gamer;
+@using GameStop.Models;
+@using System.Collections.Generic;
+
+<h2>Gamer Details</h2>
+<hr />
+<h4>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h4>
+
+@if (@Model.VideoGames.Count == 0)
+{
+    <p>This Gamer does not own any Video Games!</p>
+}
+else
+{
+    <h4>Video Games the gamer owns:</h4>
+    <ul>
+    @foreach (VideoGame videoGame in Model.VideoGames)
+        {
+            string tags = "";
+            @if (videoGame.JoinEntities.Count == 0)
+            {
+                tags = "This video game does not have any tags.";
+            }
+            else
+            {
+                List<string> tagList = new List<string>();
+                @foreach (VideoGameTag join in videoGame.JoinEntities)
+                {
+                    tagList.Add(join.Tag.Title);
+                }
+                tags = String.Join(", ", tagList);
+            }
+            <li>@videoGame.Name | Tags: @tags</li>
+        }
+    </ul>
+}

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -15,10 +14,11 @@
     <div class="jumbotron">
       <h1 id="jumbotron">Game Stop!</h1>
     </div>
-  @RenderBody()
-@* vvvvv Insert Divs creating FileName.cshtml in Shared folder with <div></div> vvvvv *@
+    @RenderBody()
+    @* vvvvv Insert Divs creating FileName.cshtml in Shared folder with <div></div> vvvvv *@
 
-  @* Insert photo using ===>  src='~/img/FileName.jpg' *@
+    @* Insert photo using ===> src='~/img/FileName.jpg' *@
+    @await Html.PartialAsync("Footer")
   </div>
 </body>
 

@@ -9,4 +9,28 @@
 
 body {
   text-align: center;
+  background-color: #008080;
+  color: white;
+  text-shadow: black 3px 2px;;
+}
+
+
+div#footer {
+  position:fixed;
+  bottom:0px;
+  left:0px;
+  width:100%;
+  color:#CCC;
+  background: darksalmon;
+  padding:9px;
+  text-decoration: underline;
+}
+
+a {
+  color: white;
+  text-decoration: underline;
+}
+
+hr {
+  border-color: white;
 }

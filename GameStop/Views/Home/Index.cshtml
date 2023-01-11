@@ -18,7 +18,7 @@
 <ul>
   @foreach (Gamer gamers in Model["gamers"])
   {
-    <li>@Html.ActionLink(@gamers.Name, "Details", "Gamers", new { id = @gamers.GamerId})</li>
+    <li style="list-style-position: inside; padding-right: 45px;">@Html.ActionLink(@gamers.Name, "Details", "Gamers", new { id = @gamers.GamerId})</li>
   }
 </ul>
 </div>
