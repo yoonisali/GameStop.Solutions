@@ -9,6 +9,8 @@ namespace GameStop.Models
 
         public int GamerId { get; set; }
 
+        public Gamer Gamer { get; set; }
+
         public List<VideoGameTag> JoinEntities { get;}
 
         public ApplicationUser User { get; set; }
