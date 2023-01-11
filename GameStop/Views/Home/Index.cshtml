@@ -1,3 +1,49 @@
 @{
   Layout = "_Layout";
 }
+
+@using GameStop.Models
+
+<h1>Welcome to GameStop!</h1>
+
+
+<hr>
+<div class="row" style="padding-top: 20px;">
+<div class="col-6">
+<h4>Gamers</h4>
+@if (Model["gamers"].Length == 0)
+{
+  <p>No Gamers have been added yet!</p>
+} 
+<ul>
+  @foreach (Gamer gamers in Model["gamers"])
+  {
+    <li>@Html.ActionLink(@gamers.Name, "Details", "Gamers", new { id = @gamers.GamerId})</li>
+  }
+</ul>
+</div>
+<div class="col-6">
+@if (User.Identity.IsAuthenticated)
+{
+  <h4>Video Games for @User.Identity.Name</h4>
+  @if (Model["videogames"].Length == 0)
+  {
+    <p>No videogames have been added yet!</p>
+  } 
+  <ul>
+    @foreach (VideoGame videogame in Model["videogames"])
+    {
+      <li>@Html.ActionLink(@videogame.Name, "Details", "VideoGames", new { id = @videogame.VideoGameId})</li>
+    }
+  </ul>
+}
+
+else
+{
+  <h4>Video Games</h4>
+  <p>Please @Html.ActionLink("log in", "LogIn", "Account") to view or manage your video games.</p>
+}
+</div>
+</div>
+<hr>
+
