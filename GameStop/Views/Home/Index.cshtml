@@ -33,7 +33,7 @@
   <ul>
     @foreach (VideoGame videogame in Model["videogames"])
     {
-      <li>@Html.ActionLink(@videogame.Name, "Details", "VideoGames", new { id = @videogame.VideoGameId})</li>
+      <li style="list-style-position: inside;">@Html.ActionLink(@videogame.Name, "Details", "VideoGames", new { id = @videogame.VideoGameId})</li>
     }
   </ul>
 }

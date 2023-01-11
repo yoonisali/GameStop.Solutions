@@ -33,5 +33,39 @@ namespace GameStop.Controllers
                                 .ToList();
             return View(userVideoGames);
         }
+
+        public ActionResult Create()
+        {
+            ViewBag.GamerId = new SelectList(_db.Gamers, "GamerId", "Name");
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Create(VideoGame videogame, int GamerId)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.GamerId = new SelectList(_db.Gamers, "GamerId", "Name");
+                return View(videogame);
+            }
+            else
+            {
+                string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
+                videogame.User = currentUser;
+                _db.VideoGames.Add(videogame);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+        }
+        public ActionResult Details(int id)
+        {
+            VideoGame thisVideoGame = _db.VideoGames
+                .Include(videoGame => videoGame.Gamer)
+                .Include(videoGame => videoGame.JoinEntities)
+                .ThenInclude(join => join.Tag)
+                .FirstOrDefault(videoGame => videoGame.VideoGameId == id);
+            return View(thisVideoGame);
+        }
     }
 }

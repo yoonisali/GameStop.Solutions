@@ -1,0 +1,20 @@
+@{
+  Layout = "_Layout";
+}
+
+@model GameStop.Models.VideoGame
+
+<h4>Add a new Video Game!</h4>
+
+@* <p>@Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+<p>@Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p> *@
+
+@using (Html.BeginForm())
+{
+  @Html.TextBoxFor(model => model.Name, new { placeholder = "Name", style = "text-align: center; border-radius: 10px 10px "})<br><br>
+
+  @Html.LabelFor(model => model.Gamer, new {style = "padding-right: 15px;"})
+  @Html.DropDownList("GamerId")<br><br>
+
+  <input type="submit" value="Add!" class="btn btn-dark" />
+}

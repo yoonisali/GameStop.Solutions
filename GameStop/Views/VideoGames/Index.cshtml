@@ -4,20 +4,26 @@
 
 @using GameStop.Models;
 
-<h2>Video Games for @User.Identity.Name</h2>
+<h2>Video Games for @User.Identity.Name</h2><br>
 
+<hr>
 @if (@Model.Count == 0)
 {
   <h5>No Video Games have been added yet!</h5><br>
 } 
-else
-{
+<div class="row" style="padding-top: 30px;">
+<div class="col-6">
   <ul>
     @foreach (VideoGame videogame in Model)
     {
-      <li>@Html.ActionLink($"{videogame.Name}", "Details", new { id = videogame.VideoGameId }) | @videogame.Gamer.Name</li>
+      <li style="list-style-position: inside;">@Html.ActionLink($"{videogame.Name}", "Details", new { id = videogame.VideoGameId }) | @Html.ActionLink($"{videogame.Gamer.Name}", "Details", "Gamers", new { id = videogame.Gamer.GamerId })</li>
     }
   </ul>
-}
+</div>
 
+
+<div class="col-6">
 <p>@Html.ActionLink("Add a new Video Game!", "Create")</p>
+</div>
+</div>
+<hr>

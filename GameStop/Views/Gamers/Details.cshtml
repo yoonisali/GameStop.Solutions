@@ -16,7 +16,7 @@
 }
 else
 {
-    <h4>Video Games the gamer owns:</h4>
+    <h5>Video Games owned:</h5>
     <ul>
     @foreach (VideoGame videoGame in Model.VideoGames)
         {
@@ -34,7 +34,7 @@ else
                 }
                 tags = String.Join(", ", tagList);
             }
-            <li>@videoGame.Name | Tags: @tags</li>
+            <li  style="list-style-position: inside;">@videoGame.Name | Tags: @tags</li>
         }
     </ul>
 }

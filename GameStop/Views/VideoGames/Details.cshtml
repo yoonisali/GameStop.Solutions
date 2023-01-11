@@ -1,0 +1,31 @@
+@{
+    Layout = "_Layout";
+}
+
+@using GameStop.Models
+@model GameStop.Models.VideoGame
+
+<h2>Item Details</h2>
+<hr />
+<h5>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h5>
+<h5>@Html.DisplayNameFor(model => model.Gamer): @Html.DisplayFor(model => model.Gamer.Name)</h5><br>
+
+@if (@Model.JoinEntities.Count == 0)
+{
+    <p>This Video Game does not have any tags yet!</p>
+}
+else
+{
+    <h4>This Video Game has the following tags:</h4>
+    <ul>
+    @foreach (VideoGameTag join in Model.JoinEntities)
+        {
+            <li>Tag: @join.Tag.Title</li>
+            @using (Html.BeginForm("DeleteJoin", "Items"))
+            {
+                @Html.Hidden("joinId", @join.VideoGameTagId)
+                <input type="submit" value="Delete" />
+            }
+        }
+    </ul>
+}
