@@ -25,7 +25,7 @@ const replaceAllNames = function (src, fileMode) {
         }
         if (fileMode) {
           if (fs.lstatSync(res[r]).isFile()) {
-            const checkFile = fs.readFileSync(res[r], "utf-8").replaceAll("$ProjectName", `${args.name}`);
+            const checkFile = fs.readFileSync(res[r], "utf-8").replaceAll("GameStop", `${args.name}`);
             fs.removeSync(res[r]);
             fs.writeFileSync(res[r].replaceAll("ProjectName", `${args.name}`), checkFile);
           }

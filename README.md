@@ -1,41 +1,7 @@
-# Setup for template
-#### Thanks [Robert Bryan](https://github.com/robbryandev) for the rad name replacement code! :pray:
-* _clone CSharpTemplate.Solution repository to desktop_
-* _run npm commands below in CSharpTemplate.Solution replacing [ProjectName] with the project name_
-```
-npm i
-```
-```
-node ./index.js --name [ProjectName] --dest ~/Desktop
-```
 
-* _run dotnet commands below in ProjectName and ProjectName.Tests_
-```
-dotnet restore
-```
+# _Game Stop_
 
-* _create appsettings.json file in ProjectName folder if using a MySql database_
-```
-{
-  "ConnectionStrings": {
-      "DefaultConnection": "Server=localhost;Port=3306;database=[database_name];uid=[USERNAME];pwd=[PASSWORD];"
-  }
-}
-```
-
-* _to run project in developement mode_
-```
-dotnet watch run
-```
-* _to run project in production mode_
-```
-dotnet watch run --launch-profile "production"
-```
-
-
-# _{Application Name}_
-
-#### By: _**David Gamble**_
+#### By: _**Yoonis Ali and Brandon Fenk**_
 
 #### _{Brief description of application}_
 
@@ -46,7 +12,7 @@ dotnet watch run --launch-profile "production"
 * _ASP.NET Core MVC 6_
 * _Entity Framework Core_
 * _MySql_
-* _MS Tests_
+
 
 ## Description
 
@@ -66,7 +32,7 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 
 ## License
 
-_Copyright (c) 2022 David Gamble_
+_Copyright (c) 2022 Yoonis Ali and Brandon Fenk_
 
 _Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:_
 
