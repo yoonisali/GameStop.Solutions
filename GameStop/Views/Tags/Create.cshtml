@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model GameStop.Models.Tag
+
+<h4>Add a new tag</h4>
+
+@using (Html.BeginForm())
+{
+    
+    @Html.TextBoxFor(model => model.Title, new { placeholder = "Name", style = "text-align: center; border-radius: 10px 10px "})
+
+    <input type="submit" value="Add new tag" class="btn btn-dark" />
+}

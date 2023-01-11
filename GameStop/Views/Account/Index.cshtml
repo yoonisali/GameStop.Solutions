@@ -9,9 +9,8 @@
     <p>Hello @User.Identity.Name!</p>
     @using (Html.BeginForm("LogOff", "Account"))
     {
-        <input type="submit" class="btn btn-primary" value="Log out" /><br>
+        <input type="submit" class="btn btn-dark" value="Log out" /><br>
     }
-    <p>@Html.ActionLink("Home", "Index", "Home")</p>
 }
 else
 {
