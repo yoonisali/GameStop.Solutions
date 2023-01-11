@@ -5,7 +5,7 @@
 @using GameStop.Models
 @model GameStop.Models.VideoGame
 
-<h2>Item Details</h2>
+<h2>Video Game Details</h2>
 <hr />
 <h5>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h5>
 <h5>@Html.DisplayNameFor(model => model.Gamer): @Html.DisplayFor(model => model.Gamer.Name)</h5><br>
@@ -20,12 +20,14 @@ else
     <ul>
     @foreach (VideoGameTag join in Model.JoinEntities)
         {
-            <li>Tag: @join.Tag.Title</li>
+            <li style="list-style-position: inside; padding-right: 45px;" >Tag: @join.Tag.Title</li><br>
             @using (Html.BeginForm("DeleteJoin", "Items"))
             {
                 @Html.Hidden("joinId", @join.VideoGameTagId)
-                <input type="submit" value="Delete" />
+                <input type="submit" value="Delete" style="margin-right: 45px;" class="btn btn-dark" />
             }
         }
     </ul>
 }
+
+<br><p>@Html.ActionLink("Add a Tag to this Video Game!", "AddTag", new { id = Model.VideoGameId })</p>

@@ -15,16 +15,17 @@
 }
 else
 {
-    <h4>Video Games the tag belongs to:</h4>
+    <h4>Video Games the tag belongs to:</h4><br>
     <ul>
     @foreach (VideoGameTag join in Model.JoinEntities)
         {
-            <li>@join.VideoGame.Name</li>
+            <li style="list-style-position: inside; padding-right: 45px;">@join.VideoGame.Name</li><br>
             @using (Html.BeginForm("DeleteJoin", "Tags"))
             {
                 @Html.Hidden("joinId", @join.VideoGameTagId)
-                <input type="submit" value="Delete" />
+                <input type="submit" value="Delete" style="margin-right: 40px;" class="btn btn-dark"/>
             }
         }
     </ul>
 }
+<br><p>@Html.ActionLink("Add a Video Game to this Tag!", "AddVideoGame", new { id = Model.TagId })</p>

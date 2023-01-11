@@ -1,0 +1,19 @@
+@{
+    Layout = "_Layout";
+}
+
+@model GameStop.Models.Tag
+
+<h2>Add a Video Game</h2>
+
+<h4>Add a Video Game to this Tag: @Html.DisplayFor(model => model.Title)</h4><br>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.TagId)
+
+    @Html.LabelFor(model => model.Title, new {style = "padding-right: 15px;"})
+    @Html.DropDownList("VideoGameId")<br><br>
+
+    <input type="submit" value="Save" class="btn btn-dark"/>
+}

@@ -42,5 +42,27 @@ namespace GameStop.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        public ActionResult AddVideoGame(int id)
+        {
+            Tag thisTag = _db.Tags.FirstOrDefault(tags => tags.TagId == id);
+            ViewBag.VideoGameId = new SelectList(_db.VideoGames, "VideoGameId", "Name");
+            return View(thisTag);
+        }
+
+        [HttpPost]
+        public ActionResult AddVideoGame(Tag tag, int videoGameId)
+        {
+#nullable enable
+            VideoGameTag? joinEntity = _db.VideoGameTags.FirstOrDefault(join => (join.VideoGameId == videoGameId && join.TagId == tag.TagId));
+#nullable disable
+            if (joinEntity == null && videoGameId != 0)
+            {
+                _db.VideoGameTags.Add(new VideoGameTag() { VideoGameId = videoGameId, TagId = tag.TagId });
+                _db.SaveChanges();
+            }
+            return RedirectToAction("Details", new { id = tag.TagId });
+        }
     }
 }
